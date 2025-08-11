@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import { format, startOfWeek, endOfWeek, eachWeekOfInterval, addWeeks, isSameWeek, isSameDay } from 'date-fns';
+import { format, startOfWeek, endOfWeek, eachWeekOfInterval } from 'date-fns';
 import { uk } from 'date-fns/locale';
 import { getCourseActivities } from '../data/mockData';
 
@@ -193,11 +193,8 @@ const EmptyWeek = styled.div`
 `;
 
 const CourseCalendar = ({ course, onBack }) => {
-  const [selectedWeek, setSelectedWeek] = useState(null);
-
   const courseActivities = getCourseActivities(course.id);
 
-  // Групуємо активності по тижнях
   const weeksWithActivities = courseActivities.reduce((weeks, activity) => {
     const weekStart = startOfWeek(new Date(activity.startDate), { weekStartsOn: 1 });
     const weekKey = weekStart.toISOString();
@@ -213,7 +210,6 @@ const CourseCalendar = ({ course, onBack }) => {
     return weeks;
   }, {});
 
-  // Створюємо всі тижні курсу
   const courseWeeks = eachWeekOfInterval(
     {
       start: new Date(course.startDate),
@@ -228,10 +224,10 @@ const CourseCalendar = ({ course, onBack }) => {
 
   const getTypeLabel = (type) => {
     switch (type) {
-      case 'unit': return 'Юніт';
-      case 'assignment': return 'Завдання';
-      case 'exam': return 'Іспит';
-      default: return 'Активність';
+      case 'unit': return 'Unit';
+      case 'assignment': return 'Assignment';
+      case 'exam': return 'Exam';
+      default: return 'Activity';
     }
   };
 
@@ -240,10 +236,10 @@ const CourseCalendar = ({ course, onBack }) => {
       <CourseHeader color={course.color}>
         <CourseInfo>
           <CourseTitle>{course.title}</CourseTitle>
-          <CourseInstructor>Викладач: {course.instructor}</CourseInstructor>
+          <CourseInstructor>Instructor: {course.instructor}</CourseInstructor>
         </CourseInfo>
         <BackButton onClick={onBack}>
-          ← Назад до календаря
+          ← Back to calendar
         </BackButton>
       </CourseHeader>
 
@@ -260,7 +256,7 @@ const CourseCalendar = ({ course, onBack }) => {
           return (
             <WeekCard key={weekKey}>
               <WeekHeader>
-                <WeekTitle>Тиждень {index + 1}</WeekTitle>
+                <WeekTitle>Week {index + 1}</WeekTitle>
                 <WeekDate>
                   {format(weekStart, 'dd MMM', { locale: uk })} - {format(weekEnd, 'dd MMM yyyy', { locale: uk })}
                 </WeekDate>
@@ -278,13 +274,13 @@ const CourseCalendar = ({ course, onBack }) => {
                       >
                         <ActivityType type={activity.type} isOverdue={activity.isOverdue}>
                           {getTypeLabel(activity.type)}
-                          {activity.isOverdue && <OverdueBadge>Прострочено</OverdueBadge>}
+                          {activity.isOverdue && <OverdueBadge>Overdue</OverdueBadge>}
                         </ActivityType>
                         <ActivityTitle>{activity.title}</ActivityTitle>
                         <ActivityDate>
                           {format(new Date(activity.startDate), 'dd MMM yyyy, HH:mm', { locale: uk })}
                           {activity.type === 'assignment' && (
-                            <span> - Дедлайн: {format(new Date(activity.endDate), 'dd MMM yyyy', { locale: uk })}</span>
+                            <span> - Deadline: {format(new Date(activity.endDate), 'dd MMM yyyy', { locale: uk })}</span>
                           )}
                         </ActivityDate>
                       </ActivityCard>
@@ -292,7 +288,7 @@ const CourseCalendar = ({ course, onBack }) => {
                   </ActivityGrid>
                 ) : (
                   <EmptyWeek>
-                    Цього тижня немає запланованих активностей
+                    No activities scheduled for this week
                   </EmptyWeek>
                 )}
               </WeekContent>

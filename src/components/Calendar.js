@@ -196,9 +196,8 @@ const Calendar = ({ onCourseClick }) => {
 
   const conflicts = getConflicts();
 
-  // Створюємо тижні для таймлайну
-  const startDate = new Date(2024, 0, 1); // 1 січня 2024
-  const endDate = new Date(2024, 11, 31); // 31 грудня 2024
+  const startDate = new Date(2024, 0, 1);
+  const endDate = new Date(2024, 11, 31);
 
   const weeks = eachWeekOfInterval(
     { start: startDate, end: endDate },
