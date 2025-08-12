@@ -1,11 +1,10 @@
+# dependencies
 /node_modules
-/.pnp
-.pnp.js
 
-/coverage
-
+# production
 /build
 
+# misc
 .DS_Store
 .env.local
 .env.development.local
@@ -16,80 +15,14 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-pids
-*.pid
-*.seed
-*.pid.lock
-
-coverage/
-*.lcov
-
-.nyc_output
-
-.grunt
-
-bower_components
-
-.lock-wscript
-
-build/Release
-
-node_modules/
-jspm_packages/
-
-typings/
-
-*.tsbuildinfo
-
-.npm
-
-.eslintcache
-
-.rpt2_cache/
-.rts2_cache_cjs/
-.rts2_cache_es/
-.rts2_cache_umd/
-
-.node_repl_history
-
-*.tgz
-
-.yarn-integrity
-
-.env
-.env.test
-
-.cache
-.parcel-cache
-
-.next
-
-.nuxt
-dist
-
-.cache/
-public
-
-.out
-.storybook-out
-
-tmp/
-temp/
-
+# IDE
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
 
+# OS
 Thumbs.db
 ehthumbs.db
 Desktop.ini
-
-*.sublime-project
-*.sublime-workspace
-
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local

@@ -1,18 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import '../styles/Calendar.scss';
 import { format, endOfWeek, eachWeekOfInterval } from 'date-fns';
-import { enUS } from 'date-fns/locale';
+import { uk } from 'date-fns/locale';
 import { courses, allActivities, getConflicts } from '../data/mockData';
+import YearSelector from './YearSelector';
 
 
 
 const Calendar = ({ onCourseClick }) => {
   const [expanded, setExpanded] = useState(false);
+  const [selectedYear, setSelectedYear] = useState(new Date().getFullYear());
 
   const conflicts = getConflicts();
 
-  const startDate = new Date(2024, 0, 1);
-  const endDate = new Date(2024, 11, 31);
+  // Calculate available years from courses data
+  const availableYears = useMemo(() => {
+    const years = new Set();
+    courses.forEach(course => {
+      const startYear = new Date(course.startDate).getFullYear();
+      const endYear = new Date(course.endDate).getFullYear();
+      for (let year = startYear; year <= endYear; year++) {
+        years.add(year);
+      }
+    });
+    return Array.from(years).sort();
+  }, []);
+
+  const startDate = new Date(selectedYear, 0, 1);
+  const endDate = new Date(selectedYear, 11, 31);
 
   const weeks = eachWeekOfInterval(
     { start: startDate, end: endDate },
@@ -20,14 +35,13 @@ const Calendar = ({ onCourseClick }) => {
   );
 
   const months = [
-    'January', 'February', 'March', 'April', 'May', 'June',
-    'July', 'August', 'September', 'October', 'November', 'December'
+    'Січень', 'Лютий', 'Березень', 'Квітень', 'Травень', 'Червень',
+    'Липень', 'Серпень', 'Вересень', 'Жовтень', 'Листопад', 'Грудень'
   ];
 
   const getWeekInMonth = (date) => {
     const month = date.getMonth();
-    const weekInYear = Math.ceil((date - new Date(date.getFullYear(), 0, 1)) / (7 * 24 * 60 * 60 * 1000));
-    return { month, weekInYear };
+    return { month };
   };
 
   const isCourseActiveInWeek = (course, weekStart) => {
@@ -52,9 +66,15 @@ const Calendar = ({ onCourseClick }) => {
 
   return (
     <div className="calendar-container">
+      <YearSelector
+        selectedYear={selectedYear}
+        onYearChange={setSelectedYear}
+        availableYears={availableYears}
+      />
+
       <div className="calendar-header">
         <button className="expand-button" onClick={() => setExpanded(!expanded)}>
-          {expanded ? 'Collapse' : 'Expand'}
+          {expanded ? 'Згорнути' : 'Розгорнути'}
         </button>
       </div>
 
@@ -69,7 +89,7 @@ const Calendar = ({ onCourseClick }) => {
       <div className="timeline-container">
         <div className="courses-column">
           <div className="courses-header">
-            <h3>Courses</h3>
+            <h3>Курси</h3>
           </div>
           {courses.map(course => (
             <div key={course.id} className="course-row" onClick={() => onCourseClick(course)}>
@@ -81,13 +101,6 @@ const Calendar = ({ onCourseClick }) => {
 
         <div className="timeline-grid">
           <div className="timeline-header">
-            <div className="year-row">
-              {weeks.map((week, index) => (
-                <div key={index} className="timeline-cell">
-                  {week.getFullYear()}
-                </div>
-              ))}
-            </div>
             <div className="month-row">
               {weeks.map((week, index) => {
                 const { month } = getWeekInMonth(week);
@@ -101,7 +114,7 @@ const Calendar = ({ onCourseClick }) => {
             <div className="week-row">
               {weeks.map((week, index) => (
                 <div key={index} className="timeline-cell">
-                  {format(week, 'w', { locale: enUS })}
+                  {format(week, 'w', { locale: uk })}
                 </div>
               ))}
             </div>

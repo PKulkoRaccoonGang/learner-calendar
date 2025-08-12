@@ -1,4 +1,4 @@
-const startDate = new Date(2024, 0, 15);
+const startDate = new Date(2023, 8, 15); // September 15, 2023
 
 const generateRandomDate = (start, end) => {
   return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
@@ -80,7 +80,7 @@ export const courses = [
     name: 'Web Development Fundamentals',
     title: 'Web Development Fundamentals',
     startDate: startDate,
-    endDate: new Date(startDate.getTime() + 12 * 7 * 24 * 60 * 60 * 1000),
+    endDate: new Date(startDate.getTime() + 16 * 7 * 24 * 60 * 60 * 1000), // 16 weeks
     color: '#28a745',
     instructor: 'Dr. Sarah Johnson',
     description: 'Introduction to HTML, CSS, and JavaScript for building modern websites'
@@ -89,8 +89,8 @@ export const courses = [
     id: 'data-science',
     name: 'Data Science and Analytics',
     title: 'Data Science and Analytics',
-    startDate: new Date(startDate.getTime() + 2 * 7 * 24 * 60 * 60 * 1000),
-    endDate: new Date(startDate.getTime() + 14 * 7 * 24 * 60 * 60 * 1000),
+    startDate: new Date(startDate.getTime() + 4 * 7 * 24 * 60 * 60 * 1000),
+    endDate: new Date(startDate.getTime() + 20 * 7 * 24 * 60 * 60 * 1000), // 16 weeks
     color: '#17a2b8',
     instructor: 'Prof. Michael Chen',
     description: 'Statistical analysis, machine learning, and data visualization techniques'
@@ -99,8 +99,8 @@ export const courses = [
     id: 'mobile-apps',
     name: 'Mobile App Development',
     title: 'Mobile App Development',
-    startDate: new Date(startDate.getTime() + 4 * 7 * 24 * 60 * 60 * 1000),
-    endDate: new Date(startDate.getTime() + 16 * 7 * 24 * 60 * 60 * 1000),
+    startDate: new Date(startDate.getTime() + 8 * 7 * 24 * 60 * 60 * 1000),
+    endDate: new Date(startDate.getTime() + 24 * 7 * 24 * 60 * 60 * 1000), // 16 weeks
     color: '#20c997',
     instructor: 'Alex Rodriguez',
     description: 'Building iOS and Android applications using React Native and Flutter'
@@ -109,8 +109,8 @@ export const courses = [
     id: 'cybersecurity',
     name: 'Cybersecurity Essentials',
     title: 'Cybersecurity Essentials',
-    startDate: new Date(startDate.getTime() + 6 * 7 * 24 * 60 * 60 * 1000),
-    endDate: new Date(startDate.getTime() + 18 * 7 * 24 * 60 * 60 * 1000),
+    startDate: new Date(startDate.getTime() + 12 * 7 * 24 * 60 * 60 * 1000),
+    endDate: new Date(startDate.getTime() + 28 * 7 * 24 * 60 * 60 * 1000), // 16 weeks
     color: '#e83e8c',
     instructor: 'Dr. Emily Watson',
     description: 'Network security, ethical hacking, and digital forensics fundamentals'
@@ -119,8 +119,8 @@ export const courses = [
     id: 'ai-ml',
     name: 'Artificial Intelligence & Machine Learning',
     title: 'Artificial Intelligence & Machine Learning',
-    startDate: new Date(startDate.getTime() + 8 * 7 * 24 * 60 * 60 * 1000),
-    endDate: new Date(startDate.getTime() + 20 * 7 * 24 * 60 * 60 * 1000),
+    startDate: new Date(startDate.getTime() + 16 * 7 * 24 * 60 * 60 * 1000),
+    endDate: new Date(startDate.getTime() + 32 * 7 * 24 * 60 * 60 * 1000), // 16 weeks
     color: '#fd7e14',
     instructor: 'Prof. David Kim',
     description: 'Deep learning, neural networks, and AI applications in real-world scenarios'
@@ -129,8 +129,8 @@ export const courses = [
     id: 'cloud-computing',
     name: 'Cloud Computing & DevOps',
     title: 'Cloud Computing & DevOps',
-    startDate: new Date(startDate.getTime() + 10 * 7 * 24 * 60 * 60 * 1000),
-    endDate: new Date(startDate.getTime() + 22 * 7 * 24 * 60 * 60 * 1000),
+    startDate: new Date(startDate.getTime() + 20 * 7 * 24 * 60 * 60 * 1000),
+    endDate: new Date(startDate.getTime() + 36 * 7 * 24 * 60 * 60 * 1000), // 16 weeks
     color: '#6f42c1',
     instructor: 'Lisa Thompson',
     description: 'AWS, Azure, Docker, Kubernetes, and CI/CD pipeline implementation'
@@ -139,8 +139,8 @@ export const courses = [
     id: 'database-design',
     name: 'Database Design & Management',
     title: 'Database Design & Management',
-    startDate: new Date(startDate.getTime() + 12 * 7 * 24 * 60 * 60 * 1000),
-    endDate: new Date(startDate.getTime() + 24 * 7 * 24 * 60 * 60 * 1000),
+    startDate: new Date(startDate.getTime() + 24 * 7 * 24 * 60 * 60 * 1000),
+    endDate: new Date(startDate.getTime() + 40 * 7 * 24 * 60 * 60 * 1000), // 16 weeks
     color: '#6c757d',
     instructor: 'Dr. Robert Martinez',
     description: 'SQL, NoSQL databases, data modeling, and database administration'
@@ -149,29 +149,27 @@ export const courses = [
     id: 'ui-ux-design',
     name: 'UI/UX Design Principles',
     title: 'UI/UX Design Principles',
-    startDate: new Date(startDate.getTime() + 14 * 7 * 24 * 60 * 60 * 1000),
-    endDate: new Date(startDate.getTime() + 26 * 7 * 24 * 60 * 60 * 1000),
+    startDate: new Date(startDate.getTime() + 28 * 7 * 24 * 60 * 60 * 1000),
+    endDate: new Date(startDate.getTime() + 44 * 7 * 24 * 60 * 60 * 1000), // 16 weeks
     color: '#dc3545',
     instructor: 'Maria Garcia',
     description: 'User interface design, user experience research, and design thinking methodologies'
   }
 ];
 
-export const generateAllActivities = () => {
-  const allActivities = [];
+export const allActivities = (() => {
+  const activities = [];
 
   courses.forEach(course => {
     const units = generateUnits(course.startDate, course.endDate, course.id);
     const assignments = generateAssignments(course.startDate, course.endDate, course.id);
     const exams = generateExams(course.startDate, course.endDate, course.id);
 
-    allActivities.push(...units, ...assignments, ...exams);
+    activities.push(...units, ...assignments, ...exams);
   });
 
-  return allActivities;
-};
-
-export const allActivities = generateAllActivities();
+  return activities;
+})();
 
 export const getCourseActivities = (courseId) => {
   return allActivities.filter(activity => activity.courseName === courseId);

@@ -18,21 +18,4 @@ code {
     monospace;
 }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-}
 
-.header {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  padding: 20px 0;
-  margin-bottom: 30px;
-}
-
-.header h1 {
-  text-align: center;
-  font-size: 2.5rem;
-  font-weight: 300;
-}
