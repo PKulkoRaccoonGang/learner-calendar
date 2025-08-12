@@ -1,0 +1,208 @@
+.calendar-container {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin: 20px 0;
+  width: 100%;
+}
+
+.calendar-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 20px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.expand-button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  margin: 10px 0;
+  transition: background 0.3s;
+
+  &:hover {
+    background: #0056b3;
+  }
+}
+
+.conflicts-warning {
+  background: #fff3cd;
+  border: 1px solid #ffeaa7;
+  border-radius: 8px;
+  padding: 12px;
+  margin: 10px 0;
+  color: #856404;
+  font-size: 14px;
+}
+
+.timeline-container {
+  display: flex;
+  overflow-x: auto;
+  min-height: 400px;
+  width: 100%;
+}
+
+.courses-column {
+  min-width: 350px;
+  background: #f8f9fa;
+  border-right: 1px solid #e9ecef;
+  position: sticky;
+  left: 0;
+  z-index: 20;
+  flex-shrink: 0;
+}
+
+.course-row {
+  padding: 15px 20px;
+  border-bottom: 1px solid #e9ecef;
+  min-height: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s;
+
+  &:hover {
+    background: #e9ecef;
+  }
+}
+
+.course-title {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0 0 4px 0;
+  color: #333;
+  line-height: 1.3;
+}
+
+.course-instructor {
+  font-size: 12px;
+  color: #666;
+  margin: 0;
+}
+
+.timeline-grid {
+  display: flex;
+  flex-direction: column;
+  min-width: 1200px;
+  flex: 1;
+}
+
+.timeline-header {
+  background: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.year-row {
+  display: flex;
+  background: #e9ecef;
+  padding: 8px 0;
+  font-weight: 600;
+  font-size: 14px;
+  color: #495057;
+}
+
+.month-row {
+  display: flex;
+  background: #f8f9fa;
+  padding: 8px 0;
+  font-weight: 600;
+  font-size: 12px;
+  color: #666;
+}
+
+.week-row {
+  display: flex;
+  background: #fff;
+  padding: 6px 0;
+  font-size: 11px;
+  color: #999;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.timeline-cell {
+  min-width: 80px;
+  text-align: center;
+  padding: 4px 6px;
+  border-right: 1px solid #f0f0f0;
+  font-size: 11px;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.timeline-row {
+  display: flex;
+  border-bottom: 1px solid #e9ecef;
+  min-height: 60px;
+  align-items: center;
+}
+
+.timeline-bar {
+  height: 8px;
+  border-radius: 4px;
+  margin: 0 2px;
+  position: relative;
+  cursor: pointer;
+  transition: height 0.3s;
+
+  &:hover {
+    height: 12px;
+  }
+}
+
+.activity-bar {
+  height: 6px;
+  border-radius: 3px;
+  margin: 1px 2px;
+  position: relative;
+  cursor: pointer;
+  transition: height 0.3s;
+
+  &:hover {
+    height: 10px;
+  }
+
+  &.unit {
+    background: #4caf50;
+  }
+
+  &.assignment {
+    background: #ff9800;
+  }
+
+  &.exam {
+    background: #9c27b0;
+  }
+
+  &.default {
+    background: #2196f3;
+  }
+
+  &.overdue {
+    background: #f44336;
+  }
+}
+
+.courses-header {
+  padding: 15px 20px;
+  background: #e9ecef;
+  border-bottom: 1px solid #dee2e6;
+
+  h3 {
+    margin: 0;
+    font-size: 16px;
+    color: #333;
+  }
+}
