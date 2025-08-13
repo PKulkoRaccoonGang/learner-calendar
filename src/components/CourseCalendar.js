@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/CourseCalendar.scss';
 import { format, startOfWeek, endOfWeek, eachWeekOfInterval } from 'date-fns';
-import { uk } from 'date-fns/locale';
+import { enUS } from 'date-fns/locale';
 import { getCourseActivities } from '../data/mockData';
 
 
@@ -47,7 +47,7 @@ const CourseCalendar = ({ course, onBack }) => {
 
   return (
     <div className="course-calendar-container">
-      <div 
+      <div
         className="course-header"
         style={{ background: `linear-gradient(135deg, ${course.color} 0%, ${course.color}dd 100%)` }}
       >
@@ -75,7 +75,7 @@ const CourseCalendar = ({ course, onBack }) => {
               <div className="week-header">
                 <h3 className="week-title">Week {index + 1}</h3>
                 <span className="week-date">
-                  {format(weekStart, 'dd MMM', { locale: uk })} - {format(weekEnd, 'dd MMM yyyy', { locale: uk })}
+                  {format(weekStart, 'dd MMM', { locale: enUS })} - {format(weekEnd, 'dd MMM yyyy', { locale: enUS })}
                 </span>
               </div>
 
@@ -96,9 +96,9 @@ const CourseCalendar = ({ course, onBack }) => {
                           </span>
                           <h4 className="activity-title">{activity.title}</h4>
                           <p className="activity-date">
-                            {format(new Date(activity.startDate), 'dd MMM yyyy, HH:mm', { locale: uk })}
+                            {format(new Date(activity.startDate), 'dd MMM yyyy, HH:mm', { locale: enUS })}
                             {activity.type === 'assignment' && (
-                              <span> - Deadline: {format(new Date(activity.endDate), 'dd MMM yyyy', { locale: uk })}</span>
+                              <span> - Deadline: {format(new Date(activity.endDate), 'dd MMM yyyy', { locale: enUS })}</span>
                             )}
                           </p>
                         </div>

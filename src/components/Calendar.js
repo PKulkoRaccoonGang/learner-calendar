@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import '../styles/Calendar.scss';
 import { format, endOfWeek, eachWeekOfInterval } from 'date-fns';
-import { uk } from 'date-fns/locale';
+import { enUS } from 'date-fns/locale';
 import { courses, allActivities, getConflicts } from '../data/mockData';
 import YearSelector from './YearSelector';
 
@@ -35,8 +35,8 @@ const Calendar = ({ onCourseClick }) => {
   );
 
   const months = [
-    'Січень', 'Лютий', 'Березень', 'Квітень', 'Травень', 'Червень',
-    'Липень', 'Серпень', 'Вересень', 'Жовтень', 'Листопад', 'Грудень'
+    'January', 'February', 'March', 'April', 'May', 'June',
+    'July', 'August', 'September', 'October', 'November', 'December'
   ];
 
   const getWeekInMonth = (date) => {
@@ -74,7 +74,7 @@ const Calendar = ({ onCourseClick }) => {
 
       <div className="calendar-header">
         <button className="expand-button" onClick={() => setExpanded(!expanded)}>
-          {expanded ? 'Згорнути' : 'Розгорнути'}
+          {expanded ? 'Collapse' : 'Expand'}
         </button>
       </div>
 
@@ -89,7 +89,7 @@ const Calendar = ({ onCourseClick }) => {
       <div className="timeline-container">
         <div className="courses-column">
           <div className="courses-header">
-            <h3>Курси</h3>
+            <h3>Courses</h3>
           </div>
           {courses.map(course => (
             <div key={course.id} className="course-row" onClick={() => onCourseClick(course)}>
@@ -114,7 +114,7 @@ const Calendar = ({ onCourseClick }) => {
             <div className="week-row">
               {weeks.map((week, index) => (
                 <div key={index} className="timeline-cell">
-                  {format(week, 'w', { locale: uk })}
+                  {format(week, 'w', { locale: enUS })}
                 </div>
               ))}
             </div>
